@@ -1,0 +1,76 @@
+/* Wasanii Sanaa - Custom styles (Tailwind via CDN handles utilities) */
+:root {
+  --background: #fdfaf5;
+  --foreground: #2a1810;
+  --muted: #f3ebe0;
+  --muted-foreground: #6b5544;
+  --border: #e8dcc8;
+  --primary: #b8541a;       /* terracotta */
+  --primary-foreground: #ffffff;
+  --secondary: #2d5a3d;     /* forest green */
+  --accent: #d4a04c;        /* warm gold */
+  --input: #e8dcc8;
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  background: var(--background);
+  color: var(--foreground);
+  -webkit-font-smoothing: antialiased;
+}
+.font-serif { font-family: 'Playfair Display', Georgia, serif; }
+
+.gradient-warm {
+  background: linear-gradient(135deg, #b8541a 0%, #d4691f 50%, #d4a04c 100%);
+}
+.text-gradient-warm {
+  background: linear-gradient(135deg, #b8541a 0%, #d4a04c 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* Semantic helper classes used in markup */
+.bg-background { background: var(--background); }
+.text-foreground { color: var(--foreground); }
+.bg-muted { background: var(--muted); }
+.bg-muted\/40 { background: color-mix(in srgb, var(--muted) 40%, transparent); }
+.bg-muted\/50 { background: color-mix(in srgb, var(--muted) 50%, transparent); }
+.text-muted-foreground { color: var(--muted-foreground); }
+.border-border { border-color: var(--border); }
+.text-primary { color: var(--primary); }
+.bg-primary { background: var(--primary); }
+.text-primary-foreground { color: var(--primary-foreground); }
+.text-accent { color: var(--accent); }
+.border-accent\/40 { border-color: color-mix(in srgb, var(--accent) 40%, transparent); }
+.bg-accent\/20 { background: color-mix(in srgb, var(--accent) 20%, transparent); }
+.text-secondary { color: var(--secondary); }
+.border-input { border-color: var(--input); }
+
+/* Animations */
+@keyframes fade-up {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.animate-fade-up { animation: fade-up .8s ease-out both; }
+
+/* Nav link active state */
+.nav-link.active { background: var(--primary); color: #fff; }
+.nav-link:not(.active):hover { background: var(--muted); }
+
+/* Icon sizing for inline SVGs */
+.icon { width: 1em; height: 1em; stroke: currentColor; fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; display: inline-block; vertical-align: -.125em; }
+
+/* Footer */
+footer { background: #1a0f08; color: #e8dcc8; }
+footer a { color: #e8dcc8; text-decoration: none; }
+footer a:hover { color: var(--accent); }
+
+/* Form focus */
+input:focus, textarea:focus { outline: none; box-shadow: 0 0 0 3px color-mix(in srgb, var(--primary) 30%, transparent); border-color: var(--primary); }
+
+/* Hover utilities */
+.hover-scale:hover { transform: scale(1.05); }
+.transition-all { transition: all .25s ease; }
